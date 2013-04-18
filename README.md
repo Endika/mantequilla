@@ -25,8 +25,11 @@ Ejecutar
 
 Recuerda editar
 nano to.py <<-- modificar los datos del servidor SMTP
+
 nano macfilter.py <<-- modificar los datos de tu router y los comandos correspondientes
+
 nano rebootWifi.py <<-- modificar los datos de tu router y los comandos correspondientes
+
 nano mantequilla.py <<-- modificar los datos de tu red
 
 Una vez configurado con las dependencias necesarias todo estará listo para usar.
