@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 import os
 from datetime import *
@@ -71,8 +70,6 @@ for i in ip:
                 #PREMIO REGISTRAMOS A EL INTRUSO
                 print "INTRUSO DETECTADO IP: "+str(i)+" y su MAC: "+str(mac)+"\n"
                 to.registrar("INTRUSO DETECTADO IP: "+str(i)+" y su MAC: "+str(mac)+"\n")
-                print i
-                print mac
                 #enviar correo
                 to.mail("INTRUSO DETECTADO IP: "+str(i)+" y su MAC: "+str(mac)+" ")
                 #Bloqueamos MAC
