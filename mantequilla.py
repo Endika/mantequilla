@@ -55,7 +55,7 @@ if coint != 0 and router[0:17].upper() != myMACs[0]:
         print myMACs[0]
         print "MITM detectado!! MAC "+str(router)
         to.registrar("MITM DETECTADO MAC: "+str(router)+"\n")
-        os.system("/root/CodeLab/macfilter.py "+router[0:17]+"\n")
+        os.system("macfilter.py "+router[0:17]+"\n")
         to.mail("MITM DETECTADO MAC: "+str(router)+"\n")
         to.registrar("MAC bloqueada")
         DEFCON=3
