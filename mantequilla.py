@@ -102,10 +102,10 @@ elif DEFCON == 1:
         print "Hay que echar un ojo, puertos desconocidos"
 elif DEFCON == 2:
         print "Reiniciamos el ROUTER"
-        os.system('/root/CodeLab/wifiReboot.py')
+        os.system('wifiReboot.py')
 elif DEFCON == 3:
         print "Reiniciamos el ROUTER"
-        os.system('/root/CodeLab/wifiReboot.py')
+        os.system('wifiReboot.py')
 else:
         print "NO IMPLEMENTADO"
 to.registrar("Chequeo finalizado con exito "+str(datetime.today())+"\n")
