@@ -13,7 +13,7 @@ Así que el script se pone con una periocidad de 15 - 30 minutos, más o menos.
 
 Está pensado para programar un equipo fijo ejemplo una Raspberry Pi, con una IP fija.
 Esto es debido por la carga de tráfico y tiempo que puede transcurrir para finalizar el scanner.
-Por defecto el script es lo más "rápido" posible. Los scanneos de los puertos no es tan completo como yo desearía.
+Por defecto el script es lo más "rápido" posible. Los scanneos de los puertos no son tan completos como yo desearía.
 Sólo se scanenan los puertos más comunes por nmap, scanear todos ralentiza mucho.
 
 Esta pensado para configurar nuestro router Wifi, en el caso de que surja una alerta
