@@ -64,7 +64,9 @@ for i in ip:
         port=''
         mac=''
         #Comprobamos si la MAC pertenece a un INTRUSO
-        os.system("nmap  "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp")
+        os.system("nmap  "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp") #<<SOLO SCANEA LOS PUERTOS COMUNES
+        #La siguiente linea comentada puede sustituir a la anterior.
+        #os.system("nmap  -p- "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp") #<<<<TARDA MUCHO SCANEA TODOS LOS PUERTOS
         mac=to.leer_simple("MACs.tmp")
         if i != IPSERVIDOR and not mac[0:17] in myMACs and mac != "":
                 #PREMIO REGISTRAMOS A EL INTRUSO
