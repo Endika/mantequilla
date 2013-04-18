@@ -24,9 +24,8 @@ Ejecutar
 ./mantequilla.py
 
 Recuerda editar
-nano to.py <<-- modificar los datos del servidor SMTP
-
-nano macfilter.py <<-- modificar los datos de tu router y los comandos correspondientes
+-nano to.py <<-- modificar los datos del servidor SMTP-
+-nano macfilter.py <<-- modificar los datos de tu router y los comandos correspondientes-
 
 nano rebootWifi.py <<-- modificar los datos de tu router y los comandos correspondientes
 
