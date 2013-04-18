@@ -19,6 +19,18 @@ Sólo se scanenan los puertos más comunes por nmap, scanear todos ralentiza muc
 Esta pensado para configurar nuestro router Wifi, en el caso de que surja una alerta
 De está forma nos mantiene lo más segura posible nuestra red.
 
+Ejecutar
+=========
+./mantequilla.py
 
+Recuerda editar
+nano to.py <<-- modificar los datos del servidor SMTP
+nano macfilter.py <<-- modificar los datos de tu router y los comandos correspondientes
+nano rebootWifi.py <<-- modificar los datos de tu router y los comandos correspondientes
+nano mantequilla.py <<-- modificar los datos de tu red
 
+Una vez configurado con las dependencias necesarias todo estará listo para usar.
 
+-->He pensado que sería mejor trocear así el programa en tantos ficheros ya que
+-- no está nada mal tener script independientes que te permitan
+-- hacer parte de estas tareas de forma automática.
