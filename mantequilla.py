@@ -29,7 +29,6 @@ myPorts = [
         443, #HTTPS
         53, #DNS
         135, #DCHP
-        199,#SMUX
         139,445,902,#SAMBA
         ]
 #######################################
@@ -64,9 +63,7 @@ for i in ip:
         port=''
         mac=''
         #Comprobamos si la MAC pertenece a un INTRUSO
-        os.system("nmap  "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp") #<<SOLO SCANEA LOS PUERTOS COMUNES
-        #La siguiente linea comentada puede sustituir a la anterior.
-        #os.system("nmap  -p- "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp") #<<<<TARDA MUCHO SCANEA TODOS LOS PUERTOS
+        os.system("nmap -sS -P0 "+str(i)+" | grep -oiE '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' > MACs.tmp") #<<SOLO SCANEA LOS PUERTOS COMUNES
         mac=to.leer_simple("MACs.tmp")
         if i != IPSERVIDOR and not mac[0:17] in myMACs and mac != "":
                 #PREMIO REGISTRAMOS A EL INTRUSO
@@ -81,6 +78,8 @@ for i in ip:
                         DEFCON=2
         #muestra solo los puertos que estan usando la maquina
         os.system("nmap  "+i+" | grep -oiE '([0-9]{1,6}/)' | grep -oiE '([0-9]{1,6})' > PORTs.tmp")
+        #La siguiente linea comentada puede sustituir a la anterior.
+        #os.system("nmap -sS -P0 -p- "+i+" | grep -oiE '([0-9]{1,6}/)' | grep -oiE '([0-9]{1,6})' > PORTs.tmp") #<<<<TARDA MUCHO SCANEA TODOS LOS PUERTOS
         port=to.listar("PORTs.tmp")
         #comprobamos si los puertos son seguros
         for j in port:
@@ -96,16 +95,21 @@ for i in ip:
                         if DEFCON<1:
                                 DEFCON=1
 to.registrar("DEFCON: "+str(DEFCON)+"\n")
-if DEFCON == 0:
+if DEFCON == 0:#No hay alertas
         print "Todo OK"
-elif DEFCON == 1:
+elif DEFCON == 1:#Detectado puerto desconocido
         print "Hay que echar un ojo, puertos desconocidos"
-elif DEFCON == 2:
+elif DEFCON == 2:#Alquien ha entrado en nuestra RED Wifi
+        #print "Cambiamos la clave del router"
+        #print "Enviamos mensaje"
         print "Reiniciamos el ROUTER"
         os.system('wifiReboot.py')
-elif DEFCON == 3:
+elif DEFCON == 3:#DIOS DIOS un MITM
         print "Reiniciamos el ROUTER"
         os.system('wifiReboot.py')
+        print "Spoofeamos la red"
+        os.system("service apache2 start")
+        os.system("ettercap -T -q -P autoadd -M arp // // -i eth0 & ettercap -T -q -P dns_spoof -i eth0")
 else:
         print "NO IMPLEMENTADO"
 to.registrar("Chequeo finalizado con exito "+str(datetime.today())+"\n")
