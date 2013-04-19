@@ -77,7 +77,7 @@ for i in ip:
                 if DEFCON<2:
                         DEFCON=2
         #muestra solo los puertos que estan usando la maquina
-        os.system("nmap  "+i+" | grep -oiE '([0-9]{1,6}/)' | grep -oiE '([0-9]{1,6})' > PORTs.tmp")
+        os.system("nmap -sS -P0 "+i+" | grep -oiE '([0-9]{1,6}/)' | grep -oiE '([0-9]{1,6})' > PORTs.tmp")
         #La siguiente linea comentada puede sustituir a la anterior.
         #os.system("nmap -sS -P0 -p- "+i+" | grep -oiE '([0-9]{1,6}/)' | grep -oiE '([0-9]{1,6})' > PORTs.tmp") #<<<<TARDA MUCHO SCANEA TODOS LOS PUERTOS
         port=to.listar("PORTs.tmp")
