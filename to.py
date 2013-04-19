@@ -5,6 +5,8 @@ import os
 from datetime import *
 import smtplib
 from email.mime.text import MIMEText
+import string
+from random import choice
 
 #Config#############################
 SMTP="smtp.servidor.es" #TU SERVIDOR SMTP
@@ -61,5 +63,8 @@ def listar(fichero):
         contenido=leer(fichero)
         contenido=contenido.split()
         return contenido
+        
+def newPass(n):
+    return ''.join([choice(string.letters + string.digits) for i in range(n)])
 
 #FIN LIBRERIA PRINCIPAL
