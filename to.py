@@ -47,7 +47,6 @@ def leer(fichero):
         os.system("rm "+fichero)
         return contenido
 
-
 def leer_simple(fichero):
         contenido=''
         f = open(fichero, "r")
