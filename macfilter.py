@@ -1,6 +1,5 @@
 #! /usr/bin/python
 
-import getpass
 import sys
 import telnetlib
 
@@ -26,11 +25,10 @@ tn = telnetlib.Telnet(HOST)
 
 tn.read_until("Login: ")
 tn.write(user + "\n")
-if password:
-    tn.read_until("Password: ")
-    tn.write(password + "\n")
-
+tn.read_until("Password: ")
+tn.write(password + "\n")
 tn.write("wlan macfilter --mode deny\n")
+
 if len(ORDER)>2:
         tn.write("wlan macfilter " + ORDER + " " + MAC.lower() +"\n")
 else:
