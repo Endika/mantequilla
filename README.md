@@ -1,4 +1,5 @@
-[INACTIVE] mantequilla
+Este reprositorio esta Inactivo no se actualizará.
+La nueva versión la podeis seguir aquí https://github.com/Endika/small_network_scanner
 Mantequilla.py
 ===========
 
