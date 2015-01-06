@@ -1,4 +1,4 @@
-"[INACTIVE] mantequilla"
+[INACTIVE] mantequilla
 Mantequilla.py
 ===========
 
